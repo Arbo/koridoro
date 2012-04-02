@@ -11,4 +11,7 @@ class MaleAthlete(object):
         self.energy_level -= WALK_ENERGY*time
 
     def jog(self, time=1):
-        self.energy_level -= JOG_ENERGY
+        if self.energy_level < JOG_ENERGY:
+            self.walk(time)
+        else:
+            self.energy_level -= JOG_ENERGY*time
